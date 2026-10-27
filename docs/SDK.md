@@ -2,6 +2,10 @@
 
 The package is ESM with TypeScript declarations. Build the workspace before importing `@squeekkit/sdk`.
 
+For today's Sepolia app, use **`createCurrentTestnet()`**, `CurrentTestnetChain` and `CurrentTestnetApi`; see [the current profile and full method table](CURRENT_TESTNET.md). The API defaults to the same backend as the official Sepolia app. Chain options accept the same RPC/public-client settings below. These methods are account/depositor aware.
+
+The remainder of this page documents **legacy `createSqueekKit()`**, the original developer-docs deployment. Its behavior and strict checks are retained for compatibility.
+
 ## Clients
 
 ```ts

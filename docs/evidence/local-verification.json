@@ -1,35 +1,36 @@
 {
-  "checkedAt": "2026-10-27T10:36:41.7262673Z",
+  "checkedAt": "2026-10-27T11:03:56.8730664Z",
+  "version": "0.2.0",
   "command": "npm run check; npm run test:coverage",
-  "testsPassed": 73,
-  "testFilesPassed": 4,
+  "testsPassed": 116,
+  "testFilesPassed": 8,
   "typecheck": "passed",
   "productionBuilds": "passed",
   "realMcpStdio": "passed",
   "coverage": {
     "lines": {
-      "total": 309,
-      "covered": 305,
+      "total": 527,
+      "covered": 523,
       "skipped": 0,
-      "pct": 98.7
+      "pct": 99.24
     },
     "statements": {
-      "total": 331,
-      "covered": 323,
+      "total": 567,
+      "covered": 556,
       "skipped": 0,
-      "pct": 97.58
+      "pct": 98.05
     },
     "functions": {
-      "total": 71,
-      "covered": 68,
+      "total": 118,
+      "covered": 116,
       "skipped": 0,
-      "pct": 95.77
+      "pct": 98.3
     },
     "branches": {
-      "total": 210,
-      "covered": 194,
+      "total": 340,
+      "covered": 322,
       "skipped": 0,
-      "pct": 92.38
+      "pct": 94.7
     },
     "branchesTrue": {
       "total": 0,

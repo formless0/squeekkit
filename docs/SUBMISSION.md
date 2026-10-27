@@ -1,17 +1,17 @@
 # Builder contribution / WL submission draft
 
-I built **SqueekKit**, an open-source community SDK and MCP server for Squeekchain, with an interactive demo and reproducible tests.
+I built **SqueekKit**, a community TypeScript SDK, MCP server and interactive demo for Squeekchain.
 
 Repository: https://github.com/formless0/squeekkit
 
-It packages the documented integration rules into shared TypeScript operations: deployment checks, one-block reads, exact integer rewards, owner/merge eligibility, and unsigned claim/merge preparation. A ten-tool MCP server lets assistants use those same operations without handling keys or sending transactions.
+The current Sepolia app adapter supports account rewards, complete wallet/deposited-NFT portfolios, direct custody/depositor checks, and unsigned claim, deposit, withdrawal and merge preparation. Nine current-app MCP tools share the same implementation; ten older tools preserve the deployment from the developer documentation separately.
 
-The demo includes a real recorded Sepolia audit, live compatibility checks and a clearly labeled simulated merge lab. Tests exercise positive and negative paths, the actual MCP stdio protocol, and desktop/mobile UI behavior.
+It has reproducible tests and real Sepolia evidence: current contract verification, full public-reserve portfolio pagination, onchain reads and successful unsigned claim/merge simulations. No transaction was sent. The demo clearly separates recorded snapshots, live reads and simulations.
 
-While building it, I found that the documented reporter differs from current onchain configuration, and the public API serves a different core deployment. The toolkit makes both mismatches explicit and blocks transaction preparation rather than silently switching addresses. Those findings, source blocks and reproduction steps are included in the repository.
+Because the developer manifest and live app target different deployments, the current profile documents its official-app interface source, observation block, code hashes and configuration. It never silently adopts new contracts from an API. This is a community-reviewed testnet profile, not a team-issued manifest or an independent security audit.
 
-I'd welcome feedback on the supported deployment record and the most useful integrations for other builders. This is an independent community contribution, not an official SDK.
+I'd welcome feedback on the deployment profile and which integrations would be most useful to other builders.
 
 ---
 
-This is a draft for the owner to submit. No application or message has been sent to the Squeekchain team. It does not claim endorsement, production readiness across unverified deployments, or guaranteed WL eligibility.
+Draft only: no application or message has been sent. This does not claim endorsement, mainnet support or guaranteed WL eligibility.

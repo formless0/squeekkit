@@ -2,6 +2,8 @@
 
 Checked October 27, 2026. This is a point-in-time report, not a monitor.
 
+**v0.2.0:** this report describes the retained **legacy developer-docs profile**. The separate `createCurrentTestnet()` client supports the live Sepolia app and passed current reads and unsigned simulations. See [CURRENT_TESTNET.md](CURRENT_TESTNET.md). No legacy verification was disabled to add it.
+
 ## Supported record
 
 - Official record: https://docs.squeekchain.com/assets/deployments/sepolia.json

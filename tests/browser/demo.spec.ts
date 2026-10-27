@@ -1,8 +1,23 @@
 import { test, expect } from '@playwright/test';
+test('current testnet is the default and its controls fit desktop and mobile', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Your Squeeks. Right here.' })).toBeVisible();
+  await expect(
+    page.getByText('Recorded verified testnet snapshot', { exact: false }),
+  ).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Read portfolio', exact: true })).toBeEnabled();
+  await page.getByLabel('Current testnet owner', { exact: true }).fill('invalid');
+  await page.getByRole('button', { name: 'Read portfolio', exact: true }).click();
+  await expect(page.getByRole('alert')).toContainText('valid, full Ethereum address');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
+    true,
+  );
+});
 test('overview labels its recorded data and fits the viewport', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
+  await page.getByRole('button', { name: 'Overview', exact: true }).click();
   await expect(
     page.getByRole('heading', { name: 'A little hamster. A whole lot to build.' }),
   ).toBeVisible();
@@ -50,7 +65,7 @@ test('bad addresses are rejected without reaching the network', async ({ page })
 test('MCP catalog and quickstart navigation are complete', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: /^MCP tools/ }).click();
-  await expect(page.locator('.tool-row')).toHaveCount(10);
+  await expect(page.locator('.tool-row')).toHaveCount(19);
   await page.getByLabel('Operation').selectOption('check_api_compatibility');
   await expect(page.locator('.code').first()).toContainText('check_api_compatibility');
   await page.getByRole('button', { name: 'Quickstart', exact: true }).click();

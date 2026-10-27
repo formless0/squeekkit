@@ -6,6 +6,10 @@
 
 Coverage includes:
 
+- Current-app runtime/proxy/configuration pins and separate account reward semantics.
+- NFT wallet versus staking custody, depositor checks, explicit merge routing, approval-required errors and account claim recipients.
+- Current API release/identity validation, wallet/deposited totals, complete pagination and mismatch rejection.
+- Browser-native fetch receiver binding and the loopback demo's fixed-route, GET-only API proxy.
 - Published runtime bytecode hashes, chain ID, implementation identity/version/layout, governance/graph links, configuration drift and canonical-block checks.
 - One-block reads, bigint serialization and exact values above JavaScript's safe integer range.
 - Owner-only preparation, explicit claim selection, zero rewards, sorted/deduplicated IDs, batch encoding and preserved survivor/donor order.
@@ -31,6 +35,12 @@ Desktop and mobile projects check provenance labeling, horizontal overflow, merg
 
 ## Live checks
 
+`npm run test:live:current` tests the current official app economy, complete public-reserve portfolio, onchain account/NFT reads, and actual unsigned claim/merge simulations. Its timestamped receipt is `docs/evidence/current-testnet-live.json`. All seven checks passed in the captured run. No wallet was connected and no transaction sent. The reserve claim simulation returned zero; this is not evidence of a successful nonzero payout. Deposit/withdraw tests use synthetic scenarios.
+
+`tests/fixtures/current-rpc-reference.json` contains the real public reserve read/simulation capture. `fixtures/current.ts` refreshes timestamps and synthesizes deposit, approval, failure and reward values for controlled tests; those scenarios are not live-chain results.
+
+`node scripts/mcp-smoke.mjs --live-current` also calls `current_testnet_status` through an actual MCP stdio subprocess against Sepolia. Its successful result is saved in `docs/evidence/current-mcp-live.json`; this is separate from fixture-backed MCP integration tests.
+
 `npm run test:live` runs strict verification, a diagnostic audit, and API compatibility. It saves a timestamped report and **fails if strict verification fails**, even if diagnostic reads succeed. This is intentional while the published record differs from current configuration. No key, signature or transaction is used.
 
 `node scripts/capture-reference.mjs` refreshes the recorded audit and RPC fixture capture. Review the diff and provenance before committing it; this does not automatically update the trusted manifest. The default provider may not retain old blocks.
@@ -40,4 +50,4 @@ Desktop and mobile projects check provenance labeling, horizontal overflow, merg
 - No mainnet transactions, real claims or real NFT merges were submitted during verification.
 - RPC fixture tests cannot establish how an unreviewed future contract upgrade behaves.
 - Passing simulation cannot guarantee a later transaction; state can change before inclusion.
-- Code identity checks for the proxies use published runtime hashes. Immutable token/NFT checks use pinned addresses, deployed-code presence and graph links because the manifest does not publish runtime hashes for those contracts.
+- Legacy proxy identity checks use published hashes; legacy immutable token/NFT checks use address, code presence and graph links. The current profile separately pins observed runtime hashes for all five target contracts plus proxy implementations/admins, with a clearly stated observational trust basis.

@@ -7,6 +7,7 @@ export type ErrorCode =
   | 'RPC_ERROR'
   | 'SIMULATION_FAILED'
   | 'NOT_OWNER'
+  | 'APPROVAL_REQUIRED'
   | 'NOT_MERGEABLE'
   | 'API_HTTP'
   | 'API_TIMEOUT'

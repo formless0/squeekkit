@@ -38,13 +38,16 @@ import reference from './reference.json';
 import '@fontsource-variable/dm-sans';
 import '@fontsource-variable/space-grotesk';
 import './style.css';
+import { CurrentTestnetView } from './current-view';
+import { createCurrentTestnet } from '@squeekkit/sdk';
 
 const kit = createSqueekKit();
 const repo = 'https://github.com/formless0/squeekkit';
 const owner = '0x828CB04Dbf0BDd8eB35d19045638a1af6E3D17E8';
-type Tab = 'Overview' | 'Wallet lab' | 'MCP tools' | 'Quickstart';
+type Tab = 'Current testnet' | 'Overview' | 'Wallet lab' | 'MCP tools' | 'Quickstart';
 type Protocol = typeof reference.protocol;
 const nav = [
+  { name: 'Current testnet', icon: Radio },
   { name: 'Overview', icon: Layers3 },
   { name: 'Wallet lab', icon: Wallet },
   { name: 'MCP tools', icon: Plug },
@@ -122,7 +125,7 @@ function ErrorBox({ error }: { error: ReturnType<typeof publicError> }) {
 }
 
 function App() {
-  const [tab, setTab] = useState<Tab>('Overview');
+  const [tab, setTab] = useState<Tab>('Current testnet');
   const [protocol, setProtocol] = useState<Protocol>(reference.protocol);
   const [source, setSource] = useState('Recorded audit');
   const [loading, setLoading] = useState(false);
@@ -151,7 +154,7 @@ function App() {
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            setTab('Overview');
+            setTab('Current testnet');
           }}
         >
           <span className="brand-icon">
@@ -173,7 +176,7 @@ function App() {
             >
               <Icon size={18} />
               {name}
-              {name === 'MCP tools' && <span className="count">10</span>}
+              {name === 'MCP tools' && <span className="count">19</span>}
               {tab === name && name !== 'MCP tools' && (
                 <ChevronRight size={16} className="nav-arrow" />
               )}
@@ -193,7 +196,7 @@ function App() {
           <a href={repo} target="_blank" rel="noreferrer">
             <Github size={17} /> View source <ArrowUpRight size={14} />
           </a>
-          <span>Community built · v0.1.0</span>
+          <span>Community built · v0.2.0</span>
         </div>
       </aside>
       <div className="workspace">
@@ -212,7 +215,9 @@ function App() {
           </div>
         </header>
         <main>
-          {tab === 'Overview' ? (
+          {tab === 'Current testnet' ? (
+            <CurrentTestnetView />
+          ) : tab === 'Overview' ? (
             <>
               <div className="page-heading">
                 <div>
@@ -685,6 +690,15 @@ function SqueekCard({ id, role, color }: { id: string; role: string; color: stri
   );
 }
 const tools = [
+  ['current_testnet_status', 'Verify and read the current app testnet.'],
+  ['current_testnet_account', 'Read account rewards, power and recipient onchain.'],
+  ['current_testnet_portfolio', 'Read wallet and deposited NFTs from the current API.'],
+  ['current_testnet_inspect', 'Check ownership or depositor for chosen NFTs.'],
+  ['current_testnet_check_merge', 'Check a current wallet or deposited merge.'],
+  ['current_testnet_prepare_claim', 'Simulate an account claim; show its recipient.'],
+  ['current_testnet_prepare_deposit', 'Simulate an NFT deposit with existing approval.'],
+  ['current_testnet_prepare_withdraw', 'Simulate withdrawal of deposited NFTs.'],
+  ['current_testnet_prepare_merge', 'Simulate the selected permanent donor burn.'],
   ['audit_protocol', 'Observe the documented chain and report configuration drift.'],
   ['verify_deployment', 'Check the full deployment against the pinned manifest.'],
   ['get_protocol_status', 'Strictly verified core, supply and checkpoint reads.'],
@@ -697,14 +711,18 @@ const tools = [
   ['prepare_merge', 'Simulate and explain the permanent donor burn.'],
 ];
 function McpTools() {
-  const [selected, setSelected] = useState('audit_protocol'),
+  const [selected, setSelected] = useState('current_testnet_status'),
     [result, setResult] = useState<unknown>(null),
     [busy, setBusy] = useState(false);
   async function run() {
     setBusy(true);
     try {
       setResult(
-        await (selected === 'audit_protocol' ? kit.chain.auditProtocol() : kit.api.compatibility()),
+        await (selected === 'current_testnet_status'
+          ? createCurrentTestnet().chain.protocol()
+          : selected === 'audit_protocol'
+            ? kit.chain.auditProtocol()
+            : kit.api.compatibility()),
       );
     } catch (e) {
       setResult(publicError(e));
@@ -720,7 +738,7 @@ function McpTools() {
           Give your assistant
           <br />a way into the burrow.
         </h1>
-        <p>Ten focused tools. One shared SDK. Structured answers with provenance.</p>
+        <p>Nineteen tools across two explicit testnet profiles. One shared SDK.</p>
       </div>
       <div className="mcp-hero">
         <div className="flow-node">
@@ -758,6 +776,7 @@ function McpTools() {
               setResult(null);
             }}
           >
+            <option value="current_testnet_status">current_testnet_status</option>
             <option value="audit_protocol">audit_protocol</option>
             <option value="check_api_compatibility">check_api_compatibility</option>
           </select>
@@ -834,8 +853,8 @@ function Quickstart() {
           <div>
             <h2>Ask a useful question</h2>
             <div className="prompt-card">
-              “Audit the documented Squeekchain deployment. Tell me which checks pass and whether
-              any configuration has changed.”
+              “Use current_testnet_status, then read my account and deposited NFTs on the current
+              Sepolia app. Include source blocks and do not sign or send anything.”
             </div>
             <p>
               Then inspect explicitly selected NFT IDs, explain eligibility, or prepare an
@@ -855,9 +874,9 @@ function Quickstart() {
       <div className="notice amber">
         <AlertTriangle size={18} />
         <p>
-          <b>Compatibility is explicit.</b> This release pins Core v3 / Mining v6 from the official
-          developer manifest. It does not silently adopt new addresses from an API or scan other
-          deployments. See the repository's compatibility report for the current findings.
+          <b>Compatibility is explicit.</b> Use createCurrentTestnet() or current_testnet_* tools
+          for the live Sepolia app. The original createSqueekKit() and unprefixed tools retain the
+          older documented Core v3 / Mining v6 deployment. Profiles never switch automatically.
         </p>
       </div>
     </>

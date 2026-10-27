@@ -1,0 +1,26 @@
+{
+  "checkedOn": "2026-10-27",
+  "version": "0.2.0",
+  "method": "Interactive browser checks of the local demo against public Sepolia RPC and the current official app API",
+  "owner": "0x28F4B5d92C7268F4E41DfF0b3eCb86afce2D56b0",
+  "ownerBasis": "Public protocol reserve, not a connected or controlled wallet",
+  "checks": {
+    "liveProtocol": "passed; visibly labeled Live verified RPC read at block 12004667",
+    "portfolio": "passed; complete 1111-NFT portfolio at API safe block 12004656, displayed separately from onchain evidence",
+    "unsignedMerge": "passed; selected 8889 as survivor and 8890 as donor; visible unsigned-only result and permanent-burn warning",
+    "desktop": "1440x1000, no horizontal page overflow",
+    "mobile": "390x844, no horizontal page overflow after wrapping navigation",
+    "browserErrors": "none in the final live-result console check"
+  },
+  "corrections": [
+    "Bound the default native fetch receiver, fixing browser API calls; covered by a regression test.",
+    "Wrapped the five navigation tabs on narrow screens; existing desktop/mobile overflow regressions cover this."
+  ],
+  "screenshots": ["../images/current-testnet.png", "../images/current-testnet-mobile.png"],
+  "screenshotsNote": "Final layout screenshots show a clearly labeled recorded snapshot after the final rebuild. Live-result evidence is recorded above and separately in current-testnet-live.json and current-mcp-live.json.",
+  "limitations": [
+    "No wallet connected, signatures requested, approvals granted or transactions broadcast.",
+    "Deposit/withdraw scenarios were fixture-tested, not executed live.",
+    "Availability and deployment configuration can change after these observations."
+  ]
+}

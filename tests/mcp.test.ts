@@ -15,7 +15,7 @@ test('MCP protocol integration uses the real SDK for tools, schema validation an
   try {
     await Promise.all([server.connect(a), client.connect(b)]);
     const listed = await client.listTools();
-    expect(listed.tools).toHaveLength(10);
+    expect(listed.tools).toHaveLength(19);
     expect(listed.tools.every((t) => t.annotations?.readOnlyHint === true)).toBe(true);
     for (const name of [
       'verify_deployment',
@@ -62,7 +62,7 @@ test('MCP protocol integration uses the real SDK for tools, schema validation an
     expect(unavailable.isError).toBe(true);
     expect(unavailable.structuredContent).toMatchObject({ code: 'API_UNAVAILABLE' });
     const resources = await client.listResources();
-    expect(resources.resources).toHaveLength(2);
+    expect(resources.resources).toHaveLength(3);
     for (const item of resources.resources) {
       const resource = await client.readResource({ uri: item.uri });
       expect(resource.contents.length).toBeGreaterThan(0);

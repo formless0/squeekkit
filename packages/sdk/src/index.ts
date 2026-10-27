@@ -18,3 +18,13 @@ import { SqueekApi, type ApiOptions } from './api';
 export function createSqueekKit(options: { chain?: ChainOptions; api?: ApiOptions } = {}) {
   return { chain: new SqueekChain(options.chain), api: new SqueekApi(options.api) };
 }
+export { CURRENT_TESTNET, CURRENT_ADDRESSES } from './current-profile';
+export { CurrentTestnetChain, type CurrentSnapshot } from './current-chain';
+export { CurrentTestnetApi, type CurrentAccountPage } from './current-api';
+export * from './generated/current/abis';
+import { CurrentTestnetChain } from './current-chain';
+import { CurrentTestnetApi } from './current-api';
+/** Explicit opt-in to the current official app's observed Sepolia deployment. */
+export function createCurrentTestnet(options: { chain?: ChainOptions; api?: ApiOptions } = {}) {
+  return { chain: new CurrentTestnetChain(options.chain), api: new CurrentTestnetApi(options.api) };
+}

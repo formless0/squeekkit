@@ -1,6 +1,6 @@
 {
   "name": "@squeekkit/mcp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "license": "MIT",
   "description": "SqueekKit MCP server for Squeekchain read, explain and prepare workflows.",
@@ -20,7 +20,7 @@
     "build": "tsup src/server.ts src/cli.ts --format esm --dts --clean"
   },
   "dependencies": {
-    "@squeekkit/sdk": "0.1.0",
+    "@squeekkit/sdk": "0.2.0",
     "@modelcontextprotocol/sdk": "1.32.2",
     "zod": "^4.1.12"
   }

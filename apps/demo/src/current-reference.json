@@ -1,0 +1,44 @@
+{
+  "kind": "recorded-current-testnet",
+  "capturedAt": "2026-10-27T10:48:10.595Z",
+  "protocol": {
+    "snapshot": {
+      "profileId": "sepolia-app-20261024-06",
+      "verificationBasis": "observed-official-app",
+      "chainId": 11155111,
+      "release": "squeeks-sepolia-dispenser-20261024-06-gacha-8d631c23a712",
+      "blockNumber": "12004611",
+      "blockHash": "0xaa953054bbd8646757d87fb5a07a1287b496b794c575d58d1222f971d9ace9d6",
+      "timestamp": "1793097936",
+      "verified": true,
+      "configurationDrift": []
+    },
+    "core": {
+      "settledThroughRound": "328",
+      "cumulativeWork": "19177",
+      "cumulativeBlockUnits": "1752091178831",
+      "blockHeight": "1752",
+      "blockProgress": "91178831",
+      "workPerThousandBlocks": 11088,
+      "authorizationNonce": "283",
+      "paused": false
+    },
+    "mining": {
+      "minted": "5603205665827975025624673",
+      "paid": "2575214729441580707339477",
+      "totalNftPower": "4786800000000000000000000",
+      "totalSqkPower": "1415354154574338975330270",
+      "rewardIndex": "42797508371466168595991007238122673589092",
+      "closedThroughBlock": "1752",
+      "lastActivationRound": "328",
+      "powerActivationCursor": "131",
+      "powerActivationCount": "146",
+      "bootstrapped": true,
+      "processedThroughRound": "328",
+      "closedCumulativeWork": "19177",
+      "closedCumulativeBlockUnits": "1752091178831",
+      "closedWorkPerThousandBlocks": 11088
+    },
+    "supply": "5603205665827975025624674"
+  }
+}

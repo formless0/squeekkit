@@ -1,0 +1,113 @@
+{
+  "id": "sepolia-app-20261024-06",
+  "chainId": 11155111,
+  "installationId": "sepolia-test-only-20261024-06",
+  "release": {
+    "id": "squeeks-sepolia-dispenser-20261024-06-gacha-8d631c23a712",
+    "protocolRevision": "launch-economy-2",
+    "rewardModelRevision": "q128-account-schedule-2"
+  },
+  "deploymentBlock": "11985218",
+  "apiBase": "https://green-dispenser-04.squeekchain.com",
+  "app": "https://sepolia.squeekchain.com/squeeks",
+  "qualification": "Community-reviewed current-app testnet profile. Observed code identities and official app interfaces; not an official deployment manifest or security audit.",
+  "contracts": {
+    "core": {
+      "address": "0x2AeC8094Ed6840EFf95d284C55CD2585C4De6814",
+      "runtimeHash": "0x7c644c44f8083ec73e64350872bcd7ba502c257249f875bdb4bd86c5b16780a8",
+      "implementation": "0x65B98b1fA3b37FD9254B48fBF25E604c6758F389",
+      "implementationRuntimeHash": "0x9708a68448e4eef245e7a2effdbf71e74296823b89747e439d750d4f91693fe0",
+      "proxyAdmin": "0xB6E2740AfF3905C4cFe19bfEf6C2d49E6f6dFbBc",
+      "proxyAdminRuntimeHash": "0x708fd78849961cf481617d43039b7306fddb5ff1886a0e22172d2b62e7135b67",
+      "proxyAdminOwner": "0x28bCee814b48848b3b61De74619E2aEf37D98B50",
+      "reportedImplementation": "0x65B98b1fA3b37FD9254B48fBF25E604c6758F389",
+      "version": "3",
+      "layout": "0x9a9c008e029460808209571703fbf2679785874e0e6d3232f16a864d12abcb20"
+    },
+    "mining": {
+      "address": "0xac45fe7e42b8a0A44C02f9C8A507E137322Cff7a",
+      "runtimeHash": "0xbf2d0fca2d306e1bb7fadf40012efab95669d4ba81eeec60bcefbdaa03f5bfe0",
+      "implementation": "0xe9412691830f727d6F7deaC1f068FA854Bc59df6",
+      "implementationRuntimeHash": "0x3e3d2129ca5c235d20dadfcc5aa25c196d01685127c97cae9b83cca18dd34c59",
+      "proxyAdmin": "0x436754970d7C7aE591aB864651a8D95e220eA262",
+      "proxyAdminRuntimeHash": "0x708fd78849961cf481617d43039b7306fddb5ff1886a0e22172d2b62e7135b67",
+      "proxyAdminOwner": "0x28bCee814b48848b3b61De74619E2aEf37D98B50",
+      "reportedImplementation": "0xe9412691830f727d6F7deaC1f068FA854Bc59df6",
+      "version": "8",
+      "layout": "0x1d382971e028c70910f80dc1439e6ec0115996570b54b869305d970ee43734f7"
+    },
+    "staking": {
+      "address": "0x90112ED64E1A92aaf107736ACE9584b8745020eb",
+      "runtimeHash": "0x3a92c8885a3413a82cabe5aee4c8bee3d4d10ac94f6e47e20041eb14df3766d5",
+      "implementation": "0x3276a225f22Fa4e66574744D45780FC9676AD268",
+      "implementationRuntimeHash": "0x85d6e8bdbc78b0342bd688ec64e7d48c730622575615991732f12c59578e2aa6",
+      "proxyAdmin": "0x4252bdA68C0638bd65092aA72b3Fb588d4354BD4",
+      "proxyAdminRuntimeHash": "0x708fd78849961cf481617d43039b7306fddb5ff1886a0e22172d2b62e7135b67",
+      "proxyAdminOwner": "0x28bCee814b48848b3b61De74619E2aEf37D98B50",
+      "reportedImplementation": "0x3276a225f22Fa4e66574744D45780FC9676AD268",
+      "version": "1",
+      "layout": "0x33cf34f03550f40a9b85e46af7dc41facd183709afaa22e6c7917d833eca0d8e"
+    },
+    "token": {
+      "address": "0x1C0Df748AA3814a13FB1294C7f1088ECc7b9973A",
+      "runtimeHash": "0xb8a924e21e68b23780847e291b9ebb4f41dddcedb022e38036bc0128012c3365"
+    },
+    "nft": {
+      "address": "0x05142852d9eaF3E66a7a74419e363Bd3539467B0",
+      "runtimeHash": "0x2bd55a49de21407a1bfaf54f0a7a75c54e624dbaf41d3a6f5282ab148579a964"
+    }
+  },
+  "links": {
+    "mining.core": "0x2AeC8094Ed6840EFf95d284C55CD2585C4De6814",
+    "mining.staking": "0x90112ED64E1A92aaf107736ACE9584b8745020eb",
+    "staking.genesis": "0x05142852d9eaF3E66a7a74419e363Bd3539467B0",
+    "staking.mining": "0xac45fe7e42b8a0A44C02f9C8A507E137322Cff7a",
+    "staking.launch": "0xC79b54028017b9774255bFebAc321567d593246E",
+    "staking.clones": "0x0000000000000000000000000000000000000000",
+    "token.mining": "0xac45fe7e42b8a0A44C02f9C8A507E137322Cff7a",
+    "nft.mining": "0xac45fe7e42b8a0A44C02f9C8A507E137322Cff7a",
+    "nft.sqkCore": "0x2AeC8094Ed6840EFf95d284C55CD2585C4De6814",
+    "nft.governance": "0x28bCee814b48848b3b61De74619E2aEf37D98B50",
+    "nft.protocolRecipient": "0x28F4B5d92C7268F4E41DfF0b3eCb86afce2D56b0"
+  },
+  "configuration": {
+    "core": {
+      "streamId": "0x0481d5741b22212c92c605d434ef1ffcc636d527e8071cce4032a94e5ba9d620",
+      "genesisTimestamp": "1792852200",
+      "roundDuration": "600",
+      "maxWorkPerRound": "10000",
+      "maxRoundsPerBatch": 16,
+      "guardian": "0xf4192f90Cb699945b6af6242b95A8dBFffFB19D1",
+      "reporter": "0x71f47c02431e6995cf6F757c14bC6BfA443d0A86",
+      "initialWorkPerThousandBlocks": 10875,
+      "targetBlocksPerActiveRound": "40",
+      "difficultySmoothingRounds": "30",
+      "blockUnitsPerBlock": "1000000000"
+    },
+    "mining": {
+      "core": "0x2AeC8094Ed6840EFf95d284C55CD2585C4De6814",
+      "streamId": "0x0481d5741b22212c92c605d434ef1ffcc636d527e8071cce4032a94e5ba9d620",
+      "governance": "0x28bCee814b48848b3b61De74619E2aEf37D98B50",
+      "token": "0x1C0Df748AA3814a13FB1294C7f1088ECc7b9973A",
+      "genesisTimestamp": "1792852200",
+      "maxWorkPerRound": "10000",
+      "minimumTimelockDelay": "60",
+      "supplyCap": "2100000000000000000000000000",
+      "premint": "1",
+      "launchBonus": "105000000000000000000000000",
+      "bonusBlocks": "97020",
+      "halvingBlocks": "393470",
+      "initialWorkPerThousandBlocks": 10875,
+      "initialGuardian": "0xf4192f90Cb699945b6af6242b95A8dBFffFB19D1"
+    },
+    "maximumLevel": 10,
+    "decimals": 18
+  },
+  "provenance": {
+    "capturedAt": "2026-10-27T10:44:49.050Z",
+    "blockNumber": "12004593",
+    "blockHash": "0x5559f4bffafbf84b77181ab6bf654074758d9e4f70a8bdc3b92e31df8823f4de",
+    "asset": "https://sepolia.squeekchain.com/assets/index-Chmh57Ju.js",
+    "assetSha256": "1ebe0a6745c16f517ef3230980bd58d1f785222203eedeea3115d0501a1a3c49"
+  }
+}

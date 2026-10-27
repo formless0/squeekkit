@@ -1222,12 +1222,14 @@ footer > span:nth-child(2) {
   }
   nav {
     flex-direction: row;
+    flex-wrap: wrap;
     margin-top: 19px;
     gap: 5px;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   .nav {
     width: auto;
+    flex: 1 1 auto;
     padding: 10px 11px;
     gap: 6px;
     font-size: 10px;
@@ -1477,5 +1479,90 @@ footer > span:nth-child(2) {
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+/* Current app profile: separate live data and unsigned preparation workspace. */
+.current-success {
+  background: #edf2df;
+  color: #244839;
+  align-items: flex-start;
+}
+.current-success p {
+  margin-bottom: 0;
+}
+.current-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.current-metrics article {
+  background: #fffefb;
+  border: 1px solid #e0e3d8;
+  border-radius: 14px;
+  padding: 24px;
+  min-width: 0;
+}
+.current-metrics small {
+  color: #718072;
+  letter-spacing: 1.4px;
+  font-size: 10px;
+}
+.current-metrics strong {
+  display: block;
+  font-size: 29px;
+  letter-spacing: -1px;
+  margin: 18px 0 10px;
+  overflow-wrap: anywhere;
+}
+.current-metrics span {
+  color: #718072;
+  font-size: 12px;
+}
+.current-form {
+  margin-top: 36px;
+}
+.current-form input {
+  width: 100%;
+  box-sizing: border-box;
+}
+.current-form .hero-actions {
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.current-token-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.current-token-list > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid #e0e3d8;
+  border-radius: 10px;
+  font-size: 13px;
+}
+.current-result {
+  margin-top: 24px;
+}
+.current-form pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 420px;
+  overflow: auto;
+  font-size: 11px;
+}
+@media (max-width: 700px) {
+  .current-metrics {
+    grid-template-columns: 1fr;
+  }
+  .current-token-list {
+    grid-template-columns: 1fr;
+  }
+  .current-form .hero-actions > button {
+    flex: 1 1 100%;
   }
 }
