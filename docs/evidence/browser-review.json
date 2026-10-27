@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-10-27T10:35:47.347Z",
+  "method": "Interactive in-app Chromium browser; desktop and 390x844 mobile viewport",
+  "checks": [
+    {
+      "name": "merge preview names survivor and permanent donor burn",
+      "passed": true
+    },
+    {
+      "name": "cooldown disables preview",
+      "passed": true
+    },
+    {
+      "name": "pending activation disables preview",
+      "passed": true
+    },
+    {
+      "name": "swapping roles preserves intended survivor",
+      "passed": true
+    },
+    {
+      "name": "invalid input shown clearly",
+      "passed": true
+    },
+    {
+      "name": "live RPC refresh preserves drift and identifies incompatible API",
+      "passed": false
+    },
+    {
+      "name": "live unsigned claim is blocked by reporter mismatch",
+      "passed": true
+    },
+    {
+      "name": "mobile wallet layout has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile MCP catalog lists all ten tools",
+      "passed": true
+    },
+    {
+      "name": "mobile MCP layout has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile overview has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile quickstart has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile SDK audit returns real block and explicit configuration drift",
+      "passed": true
+    }
+  ],
+  "notes": [
+    "The combined live RPC/API check did not fully pass: RPC audit succeeded; the browser could not reach the public API. A separate CLI request confirmed the API deployment mismatch.",
+    "Live unsigned claim preparation correctly rejected the published reporter mismatch. No signing or broadcasting occurred."
+  ]
+}

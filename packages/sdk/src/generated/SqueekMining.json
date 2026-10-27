@@ -1,0 +1,1316 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "MAX_CHECKPOINT_ACTIVATIONS",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "MAX_CLAIMS",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "MAX_LEVELS",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "REWARD_PER_BLOCK",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "SCALE",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "SUPPLY_CAP",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "accounting",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "result",
+        "type": "tuple",
+        "internalType": "struct MiningAccounting",
+        "components": [
+          {
+            "name": "closedResidual",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "openResidual",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "miningBalance",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "trackedCustody",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "bindClones",
+    "inputs": [
+      {
+        "name": "clonesNft",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "levelWeights",
+        "type": "uint64[]",
+        "internalType": "uint64[]"
+      },
+      {
+        "name": "levelCooldowns",
+        "type": "uint64[]",
+        "internalType": "uint64[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "bootstrapAuthority",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "checkpoint",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "checkpointStatus",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "corePaused",
+        "type": "bool",
+        "internalType": "bool"
+      },
+      {
+        "name": "nextRound",
+        "type": "uint64",
+        "internalType": "uint64"
+      },
+      {
+        "name": "roundSettled",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "claim",
+    "inputs": [
+      {
+        "name": "collection",
+        "type": "uint8",
+        "internalType": "enum MiningCollection"
+      },
+      {
+        "name": "tokenIds",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "paid",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "claimable",
+    "inputs": [
+      {
+        "name": "collection",
+        "type": "uint8",
+        "internalType": "enum MiningCollection"
+      },
+      {
+        "name": "tokenIds",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "collectionPolicy",
+    "inputs": [
+      {
+        "name": "collection",
+        "type": "uint8",
+        "internalType": "enum MiningCollection"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "policy",
+        "type": "tuple",
+        "internalType": "struct MiningCollectionPolicy",
+        "components": [
+          {
+            "name": "nft",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "maxSupply",
+            "type": "uint16",
+            "internalType": "uint16"
+          },
+          {
+            "name": "maximumLevel",
+            "type": "uint8",
+            "internalType": "uint8"
+          },
+          {
+            "name": "levels",
+            "type": "tuple[]",
+            "internalType": "struct MiningLevel[]",
+            "components": [
+              {
+                "name": "weight",
+                "type": "uint64",
+                "internalType": "uint64"
+              },
+              {
+                "name": "cooldownBlocks",
+                "type": "uint64",
+                "internalType": "uint64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "completeBootstrap",
+    "inputs": [
+      {
+        "name": "token_",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "genesisNft",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "configuration",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct MiningConfiguration",
+        "components": [
+          {
+            "name": "core",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "streamId",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "governance",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "token",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "genesisCollection",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "genesisTimestamp",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "genesisMaxSupply",
+            "type": "uint16",
+            "internalType": "uint16"
+          },
+          {
+            "name": "maxWorkPerRound",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "minimumTimelockDelay",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "supplyCap",
+            "type": "uint128",
+            "internalType": "uint128"
+          },
+          {
+            "name": "genesisMaximumLevel",
+            "type": "uint8",
+            "internalType": "uint8"
+          },
+          {
+            "name": "initialWorkPerThousandBlocks",
+            "type": "uint32",
+            "internalType": "uint32"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "cooldownBlocks",
+    "inputs": [
+      {
+        "name": "collection",
+        "type": "uint8",
+        "internalType": "enum MiningCollection"
+      },
+      {
+        "name": "level",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "core",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "extendClonesLevels",
+    "inputs": [
+      {
+        "name": "levelWeights",
+        "type": "uint64[]",
+        "internalType": "uint64[]"
+      },
+      {
+        "name": "levelCooldowns",
+        "type": "uint64[]",
+        "internalType": "uint64[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "implementationCodeAddress",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "implementationCodeVersion",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "name": "implementationStorageLayoutDigest",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "function",
+    "name": "initialize",
+    "inputs": [
+      {
+        "name": "config",
+        "type": "tuple",
+        "internalType": "struct MiningLaunchConfig",
+        "components": [
+          {
+            "name": "core",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "streamId",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "governance",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "minimumTimelockDelay",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "levelWeights",
+            "type": "uint64[]",
+            "internalType": "uint64[]"
+          },
+          {
+            "name": "cooldownBlocks",
+            "type": "uint64[]",
+            "internalType": "uint64[]"
+          }
+        ]
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "merge",
+    "inputs": [
+      {
+        "name": "collection",
+        "type": "uint8",
+        "internalType": "enum MiningCollection"
+      },
+      {
+        "name": "survivorId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "donorId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "onMint",
+    "inputs": [
+      {
+        "name": "tokenId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "position",
+    "inputs": [
+      {
+        "name": "collection",
+        "type": "uint8",
+        "internalType": "enum MiningCollection"
+      },
+      {
+        "name": "tokenId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct MiningPosition",
+        "components": [
+          {
+            "name": "activeWeight",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "pendingWeight",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "pendingRound",
+            "type": "uint40",
+            "internalType": "uint40"
+          },
+          {
+            "name": "nextMergeBlock",
+            "type": "uint48",
+            "internalType": "uint48"
+          },
+          {
+            "name": "level",
+            "type": "uint8",
+            "internalType": "uint8"
+          },
+          {
+            "name": "lastIndex",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "accruedScaled",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "proxyAdmin",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "admin",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "state",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct MiningState",
+        "components": [
+          {
+            "name": "minted",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "paid",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "totalWeight",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "rewardIndex",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "closedThroughBlock",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "lastActivationRound",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "weightActivationCursor",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "weightActivationCount",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "bootstrapped",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "processedThroughRound",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "closedCumulativeWork",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "closedCumulativeBlockUnits",
+            "type": "uint96",
+            "internalType": "uint96"
+          },
+          {
+            "name": "closedWorkPerThousandBlocks",
+            "type": "uint32",
+            "internalType": "uint32"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "weightActivation",
+    "inputs": [
+      {
+        "name": "index",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct MiningWeightActivation",
+        "components": [
+          {
+            "name": "round",
+            "type": "uint64",
+            "internalType": "uint64"
+          },
+          {
+            "name": "addedWeight",
+            "type": "uint192",
+            "internalType": "uint192"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "weightForLevel",
+    "inputs": [
+      {
+        "name": "collection",
+        "type": "uint8",
+        "internalType": "enum MiningCollection"
+      },
+      {
+        "name": "level",
+        "type": "uint8",
+        "internalType": "uint8"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "event",
+    "name": "Checkpointed",
+    "inputs": [
+      {
+        "name": "afterRound",
+        "type": "uint64",
+        "indexed": true,
+        "internalType": "uint64"
+      },
+      {
+        "name": "throughRound",
+        "type": "uint64",
+        "indexed": true,
+        "internalType": "uint64"
+      },
+      {
+        "name": "completedBlocks",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "cumulativeWork",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "cumulativeBlockUnits",
+        "type": "uint96",
+        "indexed": false,
+        "internalType": "uint96"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "minted",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "lastActivationRound",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "totalWeight",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "rewardIndex",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "CollectionPolicyUpdated",
+    "inputs": [
+      {
+        "name": "collection",
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "enum MiningCollection"
+      },
+      {
+        "name": "nft",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "maximumLevel",
+        "type": "uint8",
+        "indexed": false,
+        "internalType": "uint8"
+      },
+      {
+        "name": "levelWeights",
+        "type": "uint64[]",
+        "indexed": false,
+        "internalType": "uint64[]"
+      },
+      {
+        "name": "cooldownBlocks",
+        "type": "uint64[]",
+        "indexed": false,
+        "internalType": "uint64[]"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Initialized",
+    "inputs": [
+      {
+        "name": "version",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "MiningBootstrapped",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "collection",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "MiningInitialized",
+    "inputs": [
+      {
+        "name": "core",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "streamId",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "governance",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "PositionRegistered",
+    "inputs": [
+      {
+        "name": "collection",
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "enum MiningCollection"
+      },
+      {
+        "name": "tokenId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "firstRound",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "weight",
+        "type": "uint128",
+        "indexed": false,
+        "internalType": "uint128"
+      },
+      {
+        "name": "nextMergeBlock",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "PositionsMerged",
+    "inputs": [
+      {
+        "name": "collection",
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "enum MiningCollection"
+      },
+      {
+        "name": "survivor",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "donor",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "level",
+        "type": "uint8",
+        "indexed": false,
+        "internalType": "uint8"
+      },
+      {
+        "name": "effectiveRound",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "nextMergeBlock",
+        "type": "uint64",
+        "indexed": false,
+        "internalType": "uint64"
+      },
+      {
+        "name": "activeWeight",
+        "type": "uint128",
+        "indexed": false,
+        "internalType": "uint128"
+      },
+      {
+        "name": "pendingWeight",
+        "type": "uint128",
+        "indexed": false,
+        "internalType": "uint128"
+      },
+      {
+        "name": "accruedScaled",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "RewardsClaimed",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "collection",
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "enum MiningCollection"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "remainderScaled",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "tokenIds",
+        "type": "uint256[]",
+        "indexed": false,
+        "internalType": "uint256[]"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "WeightActivated",
+    "inputs": [
+      {
+        "name": "round",
+        "type": "uint64",
+        "indexed": true,
+        "internalType": "uint64"
+      },
+      {
+        "name": "totalWeight",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "rewardIndex",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "BindingCallFailed",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "BootstrapAlreadyComplete",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "BootstrapIncomplete",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ClonesAlreadyBound",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "CollectionNotBound",
+    "inputs": [
+      {
+        "name": "collection",
+        "type": "uint8",
+        "internalType": "enum MiningCollection"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "CooldownActive",
+    "inputs": [
+      {
+        "name": "tokenId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "nextMergeBlock",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "CoreFutureRound",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "CoreIdentityMismatch",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "CoreInconsistent",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "CoreNotFresh",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "CorePaused",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "CoreRegression",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "CoreUnavailable",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "CustodyShortfall",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidBounds",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidClaim",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidCollection",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidConfiguration",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidGraphAdmin",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidHistory",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidInitialization",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidMerge",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidPosition",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidProxyAdmin",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidProxyContext",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidProxyRuntime",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "InvalidToken",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "MintMismatch",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "NotInitializing",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "PendingActivation",
+    "inputs": [
+      {
+        "name": "tokenId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "round",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "ReentrantCall",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "RoundNotSettled",
+    "inputs": [
+      {
+        "name": "round",
+        "type": "uint64",
+        "internalType": "uint64"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "SafeCastOverflowedUintDowncast",
+    "inputs": [
+      {
+        "name": "bits",
+        "type": "uint8",
+        "internalType": "uint8"
+      },
+      {
+        "name": "value",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "SafeERC20FailedOperation",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "TokenSupplyMismatch",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Unauthorized",
+    "inputs": []
+  }
+]

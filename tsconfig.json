@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "lib": ["ES2022", "DOM"],
+    "paths": { "@squeekkit/sdk": ["./packages/sdk/src/index.ts"] }
+  },
+  "include": ["packages/**/*.ts", "apps/**/*.ts", "apps/**/*.tsx", "tests/**/*.ts", "*.ts"]
+}

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+packages/sdk/src/generated/
+tests/fixtures/rpc-reference.json
+docs/evidence/
+apps/demo/src/reference.json
+package-lock.json

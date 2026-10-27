@@ -1,0 +1,85 @@
+{
+  "checkedAt": "2026-10-27T10:35:55.584Z",
+  "release": "squeeks-sepolia-core3-mining6-001",
+  "actions": "Read-only; no transactions sent",
+  "checks": {
+    "protocol": {
+      "ok": false,
+      "error": {
+        "code": "DEPLOYMENT_MISMATCH",
+        "message": "Deployment check failed: core.configuration.reporter.",
+        "details": {
+          "field": "core.configuration.reporter",
+          "expected": "0xA663b5C05eAFa3e90bFbD3F7DEcdaaa3d41F5A75",
+          "actual": "0xB317AB7Cc24fD5d94EA120B3b189bc6527a7d0Aa"
+        }
+      }
+    },
+    "audit": {
+      "ok": true,
+      "result": {
+        "snapshot": {
+          "blockNumber": "12004550",
+          "blockHash": "0x26133bb10900d5a8962dd79b501cb5082927a8bae0c73bc17c6816cdfbfb523b",
+          "timestamp": "1793097204",
+          "chainId": 11155111,
+          "release": "squeeks-sepolia-core3-mining6-001",
+          "verified": false,
+          "configurationDrift": [
+            {
+              "field": "core.configuration.reporter",
+              "expected": "0xA663b5C05eAFa3e90bFbD3F7DEcdaaa3d41F5A75",
+              "actual": "0xB317AB7Cc24fD5d94EA120B3b189bc6527a7d0Aa"
+            }
+          ]
+        },
+        "core": {
+          "settledThroughRound": "1973",
+          "cumulativeWork": "148986",
+          "cumulativeBlockUnits": "13095604188187",
+          "blockHeight": "13095",
+          "blockProgress": "604188187",
+          "workPerThousandBlocks": 11266,
+          "authorizationNonce": "1657",
+          "paused": false
+        },
+        "mining": {
+          "minted": "72318400000000000000000000",
+          "paid": "36943987664743512461026129",
+          "totalWeight": "11066000",
+          "rewardIndex": "78171941441519291638307555762083474810297969621788927662243",
+          "closedThroughBlock": "13095",
+          "lastActivationRound": "1723",
+          "weightActivationCursor": "235",
+          "weightActivationCount": "235",
+          "bootstrapped": true,
+          "processedThroughRound": "1973",
+          "closedCumulativeWork": "148986",
+          "closedCumulativeBlockUnits": "13095604188187",
+          "closedWorkPerThousandBlocks": 11266
+        },
+        "supply": "72318400000000000000000000",
+        "rewardPerBlock": "5600000000000000000000",
+        "nftSupply": "6910",
+        "checkpoint": {
+          "corePaused": false,
+          "nextRound": "1974",
+          "roundSettled": false
+        },
+        "unprocessedRounds": "0"
+      }
+    },
+    "apiCompatibility": {
+      "ok": true,
+      "result": {
+        "compatible": false,
+        "code": "API_DEPLOYMENT_MISMATCH",
+        "reason": "The public API is serving a different deployment. Its balances and rewards cannot be combined with this SDK release.",
+        "expectedCore": "0x74665dAecA35A2303e767E76a2FF1FB6F93e119f",
+        "actualCore": "0x980b4424c007caf7a1f3670b48c8eaef7ebc3d44",
+        "expectedRelease": "squeeks-sepolia-core3-mining6-001",
+        "actualInstallation": "stream-game-sepolia-test-20261025-01"
+      }
+    }
+  }
+}

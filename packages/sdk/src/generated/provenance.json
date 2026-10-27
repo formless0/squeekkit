@@ -1,0 +1,11 @@
+{
+  "retrievedAt": "2026-10-27T10:13:12.949Z",
+  "source": "https://docs.squeekchain.com/assets/",
+  "files": {
+    "SqueekCore.json": "95d9ea6a90e68b7e3e124a111c9784d04fbe6a0d2b4e615757506d9fc6a04e91",
+    "SqueekMining.json": "9f71878e72bfce2dc769d18ecc32213fdcd45f1e4c4f48eb173f07596ec9af9b",
+    "SqueekToken.json": "483f80b4a16d1a7910f352dd9f0ae0775506bd6a6cf71f0bd4f14c4c499a813d",
+    "SqueekNFT.json": "b5dbfde07e77f4bad947b97f813683e573b7944c11812e66db02752ddcced746",
+    "sepolia.json": "335376e15f97755e8f14fe7ca194d328b219633ff5351ea9d9ab25fa2bcff31c"
+  }
+}

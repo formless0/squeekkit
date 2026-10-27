@@ -1,0 +1,36 @@
+{
+  "name": "squeekkit-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "npm run build -w @squeekkit/sdk && npm run build -w @squeekkit/mcp && npm run build -w @squeekkit/demo",
+    "dev": "npm run build -w @squeekkit/sdk && npm run dev -w @squeekkit/demo",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:mcp": "node scripts/mcp-smoke.mjs",
+    "test:live": "node scripts/live-smoke.mjs",
+    "test:browser": "playwright test",
+    "check": "npm run typecheck && npm test && npm run build && npm run test:mcp",
+    "mcp": "node packages/mcp/dist/cli.js",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^22.19.0",
+    "@vitest/coverage-v8": "5.0.5",
+    "prettier": "^3.9.10",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "5.0.5"
+  }
+}

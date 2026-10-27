@@ -1,0 +1,29 @@
+{
+  "name": "@squeekkit/sdk",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "description": "Community Squeekchain SDK: verified Sepolia reads, API compatibility checks and unsigned owner actions.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean"
+  },
+  "dependencies": {
+    "viem": "^2.56.3",
+    "zod": "^4.1.12"
+  }
+}

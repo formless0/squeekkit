@@ -1,0 +1,159 @@
+{
+  "network": "sepolia",
+  "chainId": 11155111,
+  "release": "squeeks-sepolia-core3-mining6-001",
+  "qualification": "Sepolia testnet smoke qualification only; no mainnet deployment",
+  "sourceRevision": "89ecd8f1f54f5c5bef89660c070eb54b34ef8509",
+  "deploymentBlock": 11902282,
+  "explorer": "https://eth-sepolia.blockscout.com",
+  "contracts": {
+    "SqueekCore": {
+      "address": "0x74665dAecA35A2303e767E76a2FF1FB6F93e119f",
+      "kind": "transparent proxy",
+      "implementation": "0x0a71c86ab63a77675002a389fdf4d096a07b11e2",
+      "implementationRuntimeHash": "0xe8a5a5aa913141ddd8951cf9fcc1375044b541773e5b0bf8ee04a5c7ac2d194d",
+      "implementationVersion": 3,
+      "storageLayoutDigest": "0x9a9c008e029460808209571703fbf2679785874e0e6d3232f16a864d12abcb20",
+      "proxyAdmin": "0x05a9af6c3f6780dd58168f2e145cdd0d64564a5e",
+      "deployedAtBlock": 11902282,
+      "abi": "/assets/abi/SqueekCore.json"
+    },
+    "SqueekMining": {
+      "address": "0x3beE588fC20dE788Bac17d33b41Da7346cb27EC4",
+      "kind": "transparent proxy",
+      "implementation": "0x08890b360c65fd878344bf6e23d1c36358433b4e",
+      "implementationRuntimeHash": "0x6097cf8e8f96ea654878ab0a35410240ab1b05668c08ce1b3f99e04116e88bc1",
+      "implementationVersion": 6,
+      "storageLayoutDigest": "0xace564e9c052f30122779a32fdf3333ebce7cc708eae9c01cb7875b4f6ad37a6",
+      "proxyAdmin": "0x7369d930f8dfb7a6657578eda5906d3472e4ac9a",
+      "deployedAtBlock": 11902290,
+      "abi": "/assets/abi/SqueekMining.json"
+    },
+    "SqueekToken": {
+      "address": "0x6872bfa5ccc3e9e440c6c16e5ffdabb8dba4cc76",
+      "kind": "immutable",
+      "abi": "/assets/abi/SqueekToken.json"
+    },
+    "SqueekNFT": {
+      "address": "0x0eAF3E0d40A0a8E5a6Ac030b2459E9FB0B7905c6",
+      "kind": "immutable",
+      "abi": "/assets/abi/SqueekNFT.json"
+    },
+    "DotGridRenderer": {
+      "address": "0x2dC7661D172fEf0FC900E0aD0f4ffCE68E8bfD75",
+      "kind": "immutable",
+      "abi": "/assets/abi/DotGridRenderer.json"
+    },
+    "DotGridPageValidator": {
+      "address": "0xA674943387967cEBEf3C2110026A56F0A78d7F24",
+      "kind": "immutable",
+      "abi": "/assets/abi/DotGridPageValidator.json"
+    }
+  },
+  "operational": {
+    "governanceTimelock": {
+      "address": "0x6B35AB6E96EF292E4fdD3f15a4E812f3CA291844",
+      "role": "Owns both ProxyAdmins and is SqueekNFT governance; open executor; proposer is the governance Safe",
+      "minDelaySeconds": 60
+    },
+    "governanceSafe": {
+      "address": "0x83a8d3e5ed02e5201a996c3f03e017b6a6c19d31",
+      "role": "Sole timelock proposer and controller of the Guardian role contract",
+      "threshold": 1,
+      "owners": 1
+    },
+    "guardian": {
+      "address": "0x0E1B21ED2fc5fc48E221D3E863f09589Cb490e73",
+      "role": "Guardian role contract controlled by the governance Safe; pauses SqueekCore and SqueekNFT minting"
+    },
+    "reporter": {
+      "address": "0xA663b5C05eAFa3e90bFbD3F7DEcdaaa3d41F5A75",
+      "role": "Reporter signer whose EIP-712 signature authorizes each settlement; sends no transactions"
+    },
+    "relayer": {
+      "address": "0x75fee5a3ed7af9f2e553423a8a2c78b0395bb2f7",
+      "role": "Submits Reporter-signed settlements and pays gas"
+    },
+    "keeper": {
+      "address": "0x98bbecb236cfd154b7ad4a1ea1434f4b5e761f06",
+      "role": "Submits SqueekMining checkpoints; any account can"
+    },
+    "economicRecipient": {
+      "address": "0x828cb04dbf0bdd8eb35d19045638a1af6e3d17e8",
+      "role": "Hamster-Owned Liquidity Safe (SqueekNFT economicRecipient, threshold 1): protocol reserve, sale closeout, royalties"
+    },
+    "dotGridPage": {
+      "address": "0x8dd828dab7471589b0123a99747408bc04f81567",
+      "role": "DotGrid page root holding the Squeeks image data (SqueekNFT art())"
+    }
+  },
+  "coreConfiguration": {
+    "streamId": "0xa0186b1a24b217f12f56c8574b492e286d00cd94bb5546cba45b048b19c60e44",
+    "genesisTimestamp": 1791847800,
+    "roundDuration": 600,
+    "maxWorkPerRound": 10000,
+    "maxRoundsPerBatch": 16,
+    "guardian": "0x0E1B21ED2fc5fc48E221D3E863f09589Cb490e73",
+    "reporter": "0xA663b5C05eAFa3e90bFbD3F7DEcdaaa3d41F5A75",
+    "initialWorkPerThousandBlocks": 10875,
+    "targetBlocksPerActiveRound": 40,
+    "difficultySmoothingRounds": 30,
+    "blockUnitsPerBlock": 1000000000
+  },
+  "squeeksPolicy": {
+    "collection": 0,
+    "maximumLevel": 10,
+    "levels": [
+      {
+        "level": 1,
+        "weight": 1000,
+        "cooldownBlocks": 2
+      },
+      {
+        "level": 2,
+        "weight": 3000,
+        "cooldownBlocks": 4
+      },
+      {
+        "level": 3,
+        "weight": 7000,
+        "cooldownBlocks": 6
+      },
+      {
+        "level": 4,
+        "weight": 15000,
+        "cooldownBlocks": 8
+      },
+      {
+        "level": 5,
+        "weight": 31000,
+        "cooldownBlocks": 10
+      },
+      {
+        "level": 6,
+        "weight": 63000,
+        "cooldownBlocks": 12
+      },
+      {
+        "level": 7,
+        "weight": 127000,
+        "cooldownBlocks": 14
+      },
+      {
+        "level": 8,
+        "weight": 255000,
+        "cooldownBlocks": 16
+      },
+      {
+        "level": 9,
+        "weight": 511000,
+        "cooldownBlocks": 18
+      },
+      {
+        "level": 10,
+        "weight": 1023000,
+        "cooldownBlocks": 0
+      }
+    ]
+  }
+}
