@@ -72,4 +72,4 @@ Pagination rejects duplicate NFTs, repeated cursors and changes in installation,
 
 `SqueekKitError` has `code`, `message` and `details`. Input, chain/deployment, ownership, merge, simulation, reorg, stale-state, HTTP, schema and pagination failures have distinct codes. Use `publicError(error)` at UI/logging boundaries; unrecognized provider exceptions are replaced with a generic message because provider errors may contain private endpoint credentials.
 
-No mainnet, deposit/staking, mint or arbitrary execution methods are exposed in this version.
+The legacy client does not expose deposit/staking, mint or arbitrary execution methods. Current-app NFT deposit/withdrawal preparation is documented in [the current profile](CURRENT_TESTNET.md). Both clients currently enforce Sepolia; a dedicated mainnet integration is planned after deployment and verification.

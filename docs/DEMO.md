@@ -14,4 +14,4 @@ An assistant can be asked:
 
 > Use current_testnet_status, then read my account and portfolio with the current_testnet tools. Explain wallet versus deposited NFTs, include the source block and do not sign or send anything.
 
-See [current profile limits and provenance](CURRENT_TESTNET.md). This is an independent community toolkit, not an official SDK or a promise of whitelist selection.
+See [current profile limits and provenance](CURRENT_TESTNET.md). This is an independent community toolkit, not an official SDK. Mainnet support is planned after the published deployment is integrated and verified.

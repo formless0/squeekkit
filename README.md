@@ -8,7 +8,7 @@
 
 SqueekKit turns Squeekchain's published ABI, deployment and integration rules into reusable tools. An app and an AI assistant share the same deployment checks, integer accounting, eligibility logic and transaction preparation.
 
-**Community built; not official or endorsed. Sepolia only. No private keys, signing or transaction broadcasting. Packages are built locally and are not published to npm.**
+**Community built; not official or endorsed. Available on Sepolia today; mainnet support is planned pending deployment verification. No private keys, signing or transaction broadcasting. Packages are built locally and are not published to npm.**
 
 ## Try it
 
@@ -32,24 +32,35 @@ Open the local URL printed by Vite. **Current testnet** is the default screen: l
 | [`@squeekkit/mcp`](packages/mcp) | Nineteen tools, three resources and a wallet-checkup prompt over stdio. Nine current-app tools plus ten legacy tools use the same SDK.                                     |
 | [`@squeekkit/demo`](apps/demo)   | Responsive React playground with provenance, a live audit, simulated merge scenarios, SDK request/response previews and setup instructions.                                |
 
-## Current compatibility — read this first
+## Network support
 
-**v0.2.0 adds an explicit current-app profile that works with the live Sepolia site.** Choose the integration deliberately:
+**v0.2.0 works with the current Sepolia app** using Core v3, Mining v8 and Staking v1.
 
-| Client                                                   | Deployment                                                         | Status                                                                                         |
-| -------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| `createCurrentTestnet()` / `current_testnet_*` MCP tools | Official app's Oct 24 test economy: Core v3, Mining v8, Staking v1 | Live protocol/account reads, complete portfolio and unsigned claim/merge simulations verified. |
-| `createSqueekKit()` / original unprefixed MCP tools      | Developer docs' Core v3 / Mining v6 record                         | Preserved unchanged. Current strict checks detect the drift below.                             |
+| Network             | Integration                                              | Status                                                                                                    |
+| ------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Current Sepolia app | `createCurrentTestnet()` / `current_testnet_*` MCP tools | Available. Live protocol/account reads, complete portfolio and unsigned claim/merge simulations verified. |
+| Mainnet             | A dedicated mainnet profile is planned                   | Pending the published deployment, compatibility updates and verification. Not enabled in v0.2.0.          |
+
+Mainnet is the next network target. Once the official deployment is published, the integration can be updated with its chain ID, contract addresses, code identities, governance, configuration and API endpoints. Any changed interfaces or reward rules need adapter updates and regression tests before a mainnet-compatible SDK/MCP release. The current clients enforce Sepolia, so changing the RPC URL alone does not enable mainnet. The [official deployment documentation](https://docs.squeekchain.com/developers/#deployments) currently lists Sepolia; this status was checked on October 27, 2026.
 
 The current-app profile is **community-observed and reviewed**, with ABI interfaces extracted as static data from the official app, recorded source hashes, pinned runtime identities, governance, configuration and contract links. It is **not an official deployment manifest or security audit**. It does not automatically trust addresses returned by an API. [Current profile, supported operations and evidence](docs/CURRENT_TESTNET.md).
 
-On **October 27, 2026**, live checks found:
+The current-app profile passed real `eth_call` claim and merge simulations for the public protocol reserve. The reserve claim paid zero in simulation; the merge simulation succeeded. Neither was signed or broadcast. [Current live receipts](docs/evidence/current-testnet-live.json).
+
+<details>
+<summary>Legacy deployment compatibility</summary>
+
+`createSqueekKit()` and the original unprefixed MCP tools retain the developer docs' older Core v3 / Mining v6 deployment. Use `createCurrentTestnet()` for the current app.
+
+On **October 27, 2026**, checks of that older deployment found:
 
 - The documented proxy code identities and contract connections still matched, but the onchain **reporter differed from the manifest**. Strict verification and action preparation correctly reject that drift.
 - The public API was serving a **different core deployment**. Its mining-state endpoint returned 404. The SDK refuses to combine those responses with the pinned economy.
 - `chain.auditProtocol()` still provides a diagnostic read after code/ABI/link checks, with **`snapshot.verified: false` and explicit configuration differences**. It never enables transaction preparation.
 
-Those findings concern the **legacy** profile. Its saved audit does not claim a successful live action. The new current-app profile separately passed real `eth_call` claim and merge simulations for the public protocol reserve. The reserve claim paid zero in simulation; the merge simulation succeeded. Neither was signed or broadcast. [Legacy evidence](docs/COMPATIBILITY.md) · [Current live receipts](docs/evidence/current-testnet-live.json).
+Those findings concern the legacy profile. Its saved audit does not claim a successful live action. [Legacy evidence](docs/COMPATIBILITY.md).
+
+</details>
 
 ## SDK example
 
@@ -118,8 +129,8 @@ npm run test:live:current # current app reads + unsigned claim/merge simulations
 
 ## Scope
 
-This release supports current-app Genesis NFTs and account rewards, plus the older documented Squeeks collection (`collection = 0`). Current NFT deposits/withdrawals are supported; SQK stake/unstake, clones, gacha, minting, autonomous keepers, arbitrary contracts and a full event indexer are outside this release. **No mainnet support.** It is not an audited financial product and makes no promise of whitelist eligibility.
+This release supports current-app Genesis NFTs and account rewards, plus the older documented Squeeks collection (`collection = 0`). Current NFT deposits/withdrawals are supported; SQK stake/unstake, clones, gacha, minting, autonomous keepers, arbitrary contracts and a full event indexer are outside this release. It has not undergone an independent security audit.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), [third-party notices](THIRD_PARTY_NOTICES.md) and the [WL submission draft](docs/SUBMISSION.md). Original SqueekKit code is MIT licensed.
+See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md) and [third-party notices](THIRD_PARTY_NOTICES.md). Original SqueekKit code is MIT licensed.

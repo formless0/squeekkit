@@ -1,4 +1,4 @@
-# Builder contribution / WL submission draft
+# Builder contribution overview
 
 I built **SqueekKit**, a community TypeScript SDK, MCP server and interactive demo for Squeekchain.
 
@@ -14,4 +14,4 @@ I'd welcome feedback on the deployment profile and which integrations would be m
 
 ---
 
-Draft only: no application or message has been sent. This does not claim endorsement, mainnet support or guaranteed WL eligibility.
+No message has been sent to the project team. This is an independent contribution. Mainnet support is planned pending the published deployment, compatibility updates and verification.
