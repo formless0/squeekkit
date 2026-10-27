@@ -4,7 +4,7 @@
 
 [![CI](https://github.com/formless0/squeekkit/actions/workflows/ci.yml/badge.svg)](https://github.com/formless0/squeekkit/actions/workflows/ci.yml) · [Demo walkthrough](docs/DEMO.md) · [Compatibility report](docs/COMPATIBILITY.md) · [SDK reference](docs/SDK.md) · [MCP setup](packages/mcp/README.md)
 
-![SqueekKit current testnet demo](docs/images/current-testnet.png)
+[![SqueekKit current testnet demo](docs/images/current-testnet-sharp.png)](docs/images/current-testnet-sharp.png)
 
 SqueekKit turns Squeekchain's published ABI, deployment and integration rules into reusable tools. An app and an AI assistant share the same deployment checks, integer accounting, eligibility logic and transaction preparation.
 
